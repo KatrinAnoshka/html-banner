@@ -164,11 +164,6 @@ $(' .textillate-demo').textillate({
             .set(logo, {y:-145, scale:0.3})
             .to(wrect, 1, {alpha:0, ease:Linear.easeNone}, "st")
             
-            //.from(line, 0.5, {height:0, ease:Power2.easeInOut}, "st+=0.5")
-            //.from(logopart2cont, 1.3, {x:"-=800", ease:Power2.easeOut}, "st+=1")
-            //.from(logopart1cont, 1.3, {x:"+=400", ease:Power3.easeOut}, "st+=1")
-            //.from(logo, 3, {x:"+=300", ease:Power2.easeOut}, "st")
-            
             .staggerTo(emoji, 0.15, {alpha:1, ease:Linear.easeNone}, 0.25, "st+=0.3")
             .staggerFrom(emoji, 0.15, {scale:0.5, ease:Back.easeOut, transformOrigin:"50% 50%"}, 0.25, "st+=0.3")
             .staggerTo(emoji, 0.05, {alpha:0, ease:Linear.easeNone}, 0.25, "st+=0.55")
