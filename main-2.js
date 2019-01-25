@@ -111,24 +111,30 @@ function init() {
 	
 
 function politeInit() {
+
+	 
+
 	var tl;
 var loops = 0;
-	tl = new TimelineMax({onComplete:restart});
+	tl = new TimelineMax({repeat:-1, repeatDelay:3, onComplete:restart});
 
 	// Specifications
 	var time = 0.5;
 	var between = 0.25;
 	var cta = document.querySelector("#cta");
   var btnemoji = document.querySelectorAll(".btnemoji");
-  var randomItem = 0,//Math.floor(btnemoji.length*Math.random()),
-            // txt1 = document.querySelectorAll('#text1 span'),
-            // txt2 = document.querySelectorAll('#text2 span'),
+  var randomItem = 0;//Math.floor(btnemoji.length*Math.random()),
+            var txt1 = document.querySelectorAll('#text1 span'),
+            // var txt2 = document.querySelectorAll('#text2 span');
             ctaURL;
 
 	animate();
         
 		function animate() {
-			
+			 var splitText = acAnimated.Plugins.SplitText(text1, {spacing: 2});
+            
+            TweenMax.set(btnemoji[randomItem], {alpha:1});
+
 			tl
             	.set("#frame3-copy", {y:-145, scale:0.3})
             	.to("#wrect", 1, {alpha:0, ease:Linear.easeNone}, "st")
@@ -141,7 +147,8 @@ var loops = 0;
  				
  				.to("#frame1-people", 0.5, {alpha:0, y:"-=100", ease:Back.easeIn}, "fr2")
  				.to("#bluebg", 1, {alpha:0, ease:Linear.easeNone}, "fr2+=0.5")
-  
+  				.staggerFrom(splitText.chars, 0.4, {alpha:0, ease:Linear.easeNone}, 0.02, "fr2+=1.5")
+
   				.from("#cta", 0.5, {x:"+=50", alpha:0, ease:Back.easeOut}, "fr2+=3")
             	.from("#frame3-copy", 1, {alpha:0, ease:Linear.easeNone}, "fr2+=0.8")
 
@@ -183,6 +190,15 @@ cta.addEventListener('mouseover', changeBtn, false);
 		 	//checkFrame();
 		 	return false;
 		}
+
+
+/**
+ * Start over all the animations as part of a TimelineMax object.
+ */
+		function restart() {
+			tl.restart();
+		}
+		
 //- Frame 2 ----------------------------------------------------------->
 
 	/*tl.from("#frame2-copy", time, {autoAlpha:0});
@@ -232,9 +248,7 @@ cta.addEventListener('mouseover', changeBtn, false);
 /**
  * Start over all the animations as part of a TimelineMax object.
  */
-function restart() {
-	tl.restart();
-}
+
 
 /**
  * For animating assets at the start of each frame.
@@ -272,20 +286,20 @@ function restart() {
 // 	return document.getElementById(name);
 // };
 
-$('#frame3-yes').textillate({
-  loop: false, // Повтор анимации true/false
-  minDisplayTime: 1500, // устанавливает минимальное время отображения текста
-  initialDelay: 1500,// устанавливает начальную задержку перед началом анимации
-  autoStart: true,  // автоматический запуск анимации true/false
-  inEffects: [],
-  in: {
-    effect: 'fadeInLeft', 
-    delayScale: 0.3,  // время появления каждой буквы
-    delay: 70, // установить задержку между символами
-    sync: false, // одновременное появление эффекта true/false
-    shuffle: false,// рандомная последовательность символов 
-    reverse: false,// обратная последовательность символов
-    callback: function () {} // callback that executes once the animation has finished
-  },
-});
+// $('#frame3-yes').textillate({
+//   loop: false, // Повтор анимации true/false
+//   minDisplayTime: 1500, // устанавливает минимальное время отображения текста
+//   initialDelay: 1500,// устанавливает начальную задержку перед началом анимации
+//   autoStart: true,  // автоматический запуск анимации true/false
+//   inEffects: [],
+//   in: {
+//     effect: 'fadeInLeft', 
+//     delayScale: 0.3,  // время появления каждой буквы
+//     delay: 70, // установить задержку между символами
+//     sync: false, // одновременное появление эффекта true/false
+//     shuffle: false,// рандомная последовательность символов 
+//     reverse: false,// обратная последовательность символов
+//     callback: function () {} // callback that executes once the animation has finished
+//   },
+// });
 
