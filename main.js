@@ -92,11 +92,11 @@
 /**
  * Init.
  */
- if (Enabler.isInitialized()) {
-		init();
-	} else {
-	  	Enabler.addEventListener(studio.events.StudioEvent.INIT, init);
-	}
+ // if (Enabler.isInitialized()) {
+	// 	init();
+	// } else {
+	//   	Enabler.addEventListener(studio.events.StudioEvent.INIT, init);
+	// }
 
 function init() {
 	  	if (Enabler.isPageLoaded()) {
@@ -170,26 +170,7 @@ cta.addEventListener('mouseover', changeBtn, false);
             cta.removeEventListener('mouseover', changeBtn, false);
         }
 
-        //Exit Handler - we need at least one
-		function bgExitHandler(e) {
-		 	Enabler.exit('Background Exit');
-		 	//checkFrame();
-		 	return false;
-		}
-        
-        //Exit Handler - we need at least one
-		function logoExitHandler(e) {
-		 	Enabler.exit('Logo Exit');
-		 	//checkFrame();
-		 	return false;
-		}
-
-		//Exit Handler - we need at least one
-		function ctaExitHandler(e) {
-		 	Enabler.exit('CTA Offer Exit');
-		 	//checkFrame();
-		 	return false;
-		}
+       
 
 
 /**
