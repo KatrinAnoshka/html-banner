@@ -3,7 +3,8 @@
  */
 // var tl;
 // var loops = 0;
-
+"use strict"
+window.onload = function() {
 /**
  * Init.
  */
@@ -107,24 +108,38 @@
 // 	return document.getElementById(name);
 // };
 
-$(' .textillate-demo').textillate({
-  loop: false, // Повтор анимации true/false
-  minDisplayTime: 1500, // устанавливает минимальное время отображения текста
-  initialDelay: 0,// устанавливает начальную задержку перед началом анимации
-  autoStart: true,  // автоматический запуск анимации true/false
-  inEffects: [],
-  in: {
-    effect: 'fadeInLeft', 
-    delayScale: 0.5,  // время появления каждой буквы
-    delay: 50, // установить задержку между символами
-    sync: false, // одновременное появление эффекта true/false
-    shuffle: false,// рандомная последовательность символов 
-    reverse: false,// обратная последовательность символов
-    callback: function () {} // callback that executes once the animation has finished
-  },
-});
+// $(' .textillate-demo').textillate({
+//   loop: false, // Повтор анимации true/false
+//   minDisplayTime: 1500, // устанавливает минимальное время отображения текста
+//   initialDelay: 0,// устанавливает начальную задержку перед началом анимации
+//   autoStart: true,  // автоматический запуск анимации true/false
+//   inEffects: [],
+//   in: {
+//     effect: 'fadeInLeft', 
+//     delayScale: 0.5,  // время появления каждой буквы
+//     delay: 50, // установить задержку между символами
+//     sync: false, // одновременное появление эффекта true/false
+//     shuffle: false,// рандомная последовательность символов 
+//     reverse: false,// обратная последовательность символов
+//     callback: function () {} // callback that executes once the animation has finished
+//   },
+// });
 
+    if (Enabler.isInitialized()) {
+        init();
+    } else {
+        Enabler.addEventListener(studio.events.StudioEvent.INIT, init);
+    }
 
+    function init() {
+        if (Enabler.isPageLoaded()) {
+            //Enabler.setProfileId(10012416);
+            politeInit();
+        } else {
+            //Enabler.setProfileId(10012416);
+            Enabler.addEventListener(studio.events.StudioEvent.PAGE_LOADED, politeInit);
+        }
+    };
 	function politeInit(){		
 	    console.log = function() {}
         
@@ -194,5 +209,5 @@ $(' .textillate-demo').textillate({
             cta.removeEventListener('mouseover', changeBtn, false);
         }
 
-
+}
 
