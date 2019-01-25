@@ -46,26 +46,17 @@ div {
     cursor: pointer;
 }
 
-#frame1-people {
+#logo {
     width: 60%;
     height: 88%;
-    /*top: 120px;*/
     top: 20px;
     left: 50%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
     background: url('logo2.svg') no-repeat;
-   /* visibility: hidden;
-    opacity: 0;
-    transform: matrix(1, 0, 0, 1, 0, 0);
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;*/
-    /*position: absolute;*/
 }
 
-#frame3-copy {
+#logo2 {
     cursor: pointer;
     height: 85px;
     width: 900px;

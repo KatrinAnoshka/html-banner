@@ -136,7 +136,7 @@ var loops = 0;
             TweenMax.set(btnemoji[randomItem], {alpha:1});
 
 			tl
-            	.set("#frame3-copy", {y:-145, scale:0.3})
+            	.set("#logo2", {y:-145, scale:0.3})
             	.to("#wrect", 1, {alpha:0, ease:Linear.easeNone}, "st")
  	
  	 			.staggerTo(".emoji", 0.15, {alpha:1, ease:Linear.easeNone}, 0.25, "st+=0.3")
@@ -145,12 +145,12 @@ var loops = 0;
 
 				.addLabel("fr2", "-=0.3")
  				
- 				.to("#frame1-people", 0.5, {alpha:0, y:"-=100", ease:Back.easeIn}, "fr2")
+ 				.to("#logo", 0.5, {alpha:0, y:"-=100", ease:Back.easeIn}, "fr2")
  				.to("#bluebg", 1, {alpha:0, ease:Linear.easeNone}, "fr2+=0.5")
   				.staggerFrom(splitText.chars, 0.4, {alpha:0, ease:Linear.easeNone}, 0.02, "fr2+=1.5")
 
   				.from("#cta", 0.5, {x:"+=50", alpha:0, ease:Back.easeOut}, "fr2+=3")
-            	.from("#frame3-copy", 1, {alpha:0, ease:Linear.easeNone}, "fr2+=0.8")
+            	.from("#logo2", 1, {alpha:0, ease:Linear.easeNone}, "fr2+=0.8")
 
 }
 
