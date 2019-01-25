@@ -46,7 +46,7 @@ div {
     cursor: pointer;
 }
 
-#logo {
+#logo2 {
     width: 60%;
     height: 88%;
     top: 20px;
@@ -56,7 +56,7 @@ div {
     background: url('logo2.svg') no-repeat;
 }
 
-#logo2 {
+#logo {
     cursor: pointer;
     height: 85px;
     width: 900px;
@@ -169,7 +169,7 @@ div {
     right: 17px;
 }
 
-#text1 {
+#text {
     top: 55px;
     left: 15px;
     width: 51%;
