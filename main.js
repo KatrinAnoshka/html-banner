@@ -83,16 +83,29 @@
     /* GSAP animation */
     function politeInit() {
 
-    	var tl;
-        var loops = 0;
-    	tl = new TimelineMax({repeat:-1, repeatDelay:3, onComplete:restart});
-    	var time = 0.5;
-    	var between = 0.25;
-    	var cta = document.querySelector("#cta");
-        var btnemoji = document.querySelectorAll(".btnemoji");
-        var randomItem = 0;
-        var txt = document.querySelectorAll('#text span'),
-        ctaURL;
+var select = function(s) {
+                return document.querySelector(s);
+            },
+            selectAll = function(s) {
+                return document.querySelectorAll(s);
+            },
+            wrapper = select('#wrapper'),
+            wrect = select('#wrect'),
+            logo = select('#logo'),
+            logo2 = select('#logo2'),
+            logopart2cont = select('#logopart2cont'),
+            logopart1cont = select('#logopart1cont'),
+            emojis = select('#emojis'),
+            bluebg = select('#bluebg'),
+            bgexit = select('#bgexit'),
+            cta = select('#cta'),
+            emoji = selectAll(".emoji"),
+            btnemoji = selectAll(".btnemoji"),
+            tl = new TimelineMax({repeat:-1, repeatDelay:3, onComplete:restart}),
+            randomItem = 0,
+            txt = document.querySelectorAll('#text span'),
+            txt2 = document.querySelectorAll('#text2 span'),
+            ctaURL;
 
 	    animate();
         
@@ -103,21 +116,21 @@
             TweenMax.set(btnemoji[randomItem], {alpha:1});
 
     		tl
-                .set("#logo", {y:-145, scale:0.3})
-                .to("#wrect", 1, {alpha:0, ease:Linear.easeNone}, "st")
+                .set(logo, {y:-145, scale:0.3})
+                .to(wrect, 1, {alpha:0, ease:Linear.easeNone}, "st")
      	
-     	 		.staggerTo(".emoji", 0.15, {alpha:1, ease:Linear.easeNone}, 0.25, "st+=0.3")
-                .staggerFrom(".emoji", 0.15, {scale:0.5, ease:Back.easeOut, transformOrigin:"50% 50%"}, 0.25, "st+=0.3")
-                .staggerTo(".emoji", 0.05, {alpha:0, ease:Linear.easeNone}, 0.25, "st+=0.55")
+     	 		.staggerTo(emoji, 0.15, {alpha:1, ease:Linear.easeNone}, 0.25, "st+=0.3")
+                .staggerFrom(emoji, 0.15, {scale:0.5, ease:Back.easeOut, transformOrigin:"50% 50%"}, 0.25, "st+=0.3")
+                .staggerTo(emoji, 0.05, {alpha:0, ease:Linear.easeNone}, 0.25, "st+=0.55")
 
     			.addLabel("fr2", "-=0.3")
      				
-     			.to("#logo2", 0.5, {alpha:0, y:"-=100", ease:Back.easeIn}, "fr2")
-     			.to("#bluebg", 1, {alpha:0, ease:Linear.easeNone}, "fr2+=0.5")
+     			.to(logo2, 0.5, {alpha:0, y:"-=100", ease:Back.easeIn}, "fr2")
+     			.to(bluebg, 1, {alpha:0, ease:Linear.easeNone}, "fr2+=0.5")
       			.staggerFrom(splitText.chars, 0.4, {alpha:0, ease:Linear.easeNone}, 0.02, "fr2+=1.5")
 
-      			.from("#cta", 0.5, {x:"+=50", alpha:0, ease:Back.easeOut}, "fr2+=3")
-                .from("#logo", 1, {alpha:0, ease:Linear.easeNone}, "fr2+=0.8")
+      			.from(cta, 0.5, {x:"+=50", alpha:0, ease:Back.easeOut}, "fr2+=3")
+                .from(logo, 1, {alpha:0, ease:Linear.easeNone}, "fr2+=0.8")
 
         }
 
