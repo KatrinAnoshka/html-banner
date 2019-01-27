@@ -1,6 +1,6 @@
     var acAnimated = {Plugins: {}};
 
-    /* SplitText Plugin */
+    /* SplitText */
     acAnimated.Plugins.SplitText = function(element, options) {
         if (!options.hasOwnProperty("words")) options.words = 1;
         if (!options.hasOwnProperty("chars")) options.chars = 1;
